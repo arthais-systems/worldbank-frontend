@@ -1,0 +1,11 @@
+<h2>Country List</h2>
+
+<ul class="products">
+  <li *ngFor="let country; let i=index">
+      <div>
+          {{country.countryName}}
+          {{country.value}}
+          {{country.countryId}}
+          {{country.date}}
+      </div>
+</ul>
