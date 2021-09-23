@@ -1,6 +1,8 @@
 <router-outlet></router-outlet>
 
-<form formGroup="checkoutForm"  method="GET" action="/country/">
-    <input type="text" class="country" id="country">
+<form formGroup="checkoutForm" name="fprm" method="GET" action="/country" onSubmit="onSubmit()">
+    <h1> Página Inicial </h1>
+    <label for="=codCountry"> Código do país a ser procurado: </label>
+    <input type="text" name="codCountry" class="country" id="country">
     <input type="submit">
 </form>

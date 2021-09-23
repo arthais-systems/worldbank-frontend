@@ -1,3 +1,4 @@
+import { HttpHeaders } from '@angular/common/http';
 import { Country } from './../country';
 import { Component, OnInit } from '@angular/core';
 import { RestService} from '../rest.service';
@@ -10,20 +11,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CountryComponent implements OnInit {
 
-  countries: Country | undefined;
+  cont: Country[] | undefined;
 
   constructor(
     public rest: RestService,
-    private router: Router,
-    private route: ActivatedRoute) { }
+    public route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.rest.getCountry(this.route.snapshot.params.id).subscribe(
-      (data: Country) => this.countries = { ...data }
-    )
+    this.getCountryData();
   }
-}
 
-function id(id: any) {
-  throw new Error('Function not implemented.');
+  getCountryData(){
+    this.rest.getCountry("BRA").subscribe(data => {
+        this.cont = data.content;
+    });
+  }
 }
